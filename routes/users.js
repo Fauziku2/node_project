@@ -28,7 +28,7 @@ router.get('/signup-ajax', function (req, res) {
 })
 
 // why .get takes in authCheck??
-router.route('/signup')
+router.route('/')
       .get(authCheck, function (req, res) {
         User.find({}, function (err, allUsers) {
           res.render('users/index-passport', {
@@ -39,7 +39,7 @@ router.route('/signup')
       })
       .post(passport.authenticate('local-signup', {
         successRedirect: '/movies',
-        failureRedirect: '/signup',
+        failureRedirect: '/',
         failureFlash: true
       }))
 
