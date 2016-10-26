@@ -1,0 +1,50 @@
+{
+  "movies": [{
+    "title" : "Deepwater Horizon",
+    "genre" : "Action/Drama",
+    "description" : "In April 2010, there is no oil exploration operation in the Gulf of Mexico to compare with the Deepwater Horizon oil rig with its size or sheer depth of its drilling. However, the project for the BP oil company is beset with technical difficulties to the point where the general operational supervisor, Jimmy Harrell, and his Chief Electrical Engineer, Mike Williams, are concerned potentially dangerous trouble is brewing. Unfortunately, visiting BP executives, frustrated by the project's long delays, order curtailed site inspections and slanted system tests to make up for lost time even as Harrell, Williams and his team helplessly protest for the sake of proper safety. On April 20, the workers' fears are realized in the worst possible way when the rig's various structural and system flaws spark a catastrophic cascade of failures that would create a massive blowout and explosion that threatens them all, even as it also begins the worst environmental disaster in US history.",
+    "poster" : "deepwaterhorizonposter.jpg",
+    "background_image" : "deepwaterhorizon_background.jpeg"
+  },
+
+  {
+    "title" : "Jack Reacher: Never Go Back",
+    "genre" : "Action",
+    "description" : "Jack Reacher must uncover the truth behind a major government conspiracy in order to clear his name. On the run as a fugitive from the law, Reacher uncovers a potential secret from his past that could change his life forever.",
+    "poster" : "jackreacherposter.jpg",
+    "background_image" : "jackreacher_background.png"
+  },
+
+  {
+    "title" : "Inferno",
+    "genre" : "Adventure",
+    "description" : "Inferno, which finds the famous symbologist (again played by Tom Hanks) on a trail of clues tied to the great Dante himself. When Langdon wakes up in an Italian hospital with amnesia, he teams up with Sienna Brooks (Felicity Jones), a doctor he hopes will help him recover his memories. Together, they race across Europe and against the clock to stop a madman from unleashing a global virus that would wipe out half of the world's population.",
+    "poster" : "infernoposter.jpg",
+    "background_image" : "inferno_background.jpg"
+  },
+
+  {
+    "title" : "The Girl On The Train",
+    "genre" : "Mystery/Triller",
+    "description" : "The Girl on the Train is the story of Rachel Watson's life post-divorce. Every day, she takes the train in to work in New York, and every day the train passes by her old house. The house she lived in with her husband, who still lives there, with his new wife and child. As she attempts to not focus on her pain, she starts watching a couple who live a few houses down -- Megan and Scott Hipwell. She creates a wonderful dream life for them in her head, about how they are a perfect happy family. And then one day, as the train passes, she sees something shocking, filling her with rage. The next day, she wakes up with a horrible hangover, various wounds and bruises, and no memory of the night before. She has only a feeling: something bad happened. Then come the TV reports: Megan Hipwell is missing. Rachel becomes invested in the case and trying to find out what happened to Megan, where she is, and what exactly she herself was up to that same night Megan went missing.",
+    "poster" : "girltrain-poster.jpg",
+    "background_image" : "girltrain-background.jpg"
+  },
+
+  {
+    "title" : "Star Trek Beyond",
+    "genre" : "Sci-Fi",
+    "description" : "After docking at Starbase Yorktown, the USS Enterprise, halfway into their five-year mission, ventures into new dangerous uncharted territory. There, the Enterprise is destroyed by a new ruthless enemy with a deep hatred of the Federation, and strands Kirk and his crew on a remote planet with no means of communication. Kirk must then work with the elements to reunite his crew and get back to save Starbase Yorktown from this dangerous menace.",
+    "poster" : "startrekbeyond-poster.jpeg",
+    "background_image" : "startrekbeyond-background.jpg"
+  },
+
+  {
+    "title" : "Finding Dory",
+    "genre" : "Animation/Comedy",
+    "description" : "Dory is a wide-eyed, blue tang fish who suffers from memory loss every 10 seconds or so. The one thing she can remember is that she somehow became separated from her parents as a child. With help from her friends Nemo and Marlin, Dory embarks on an epic adventure to find them. Her journey brings her to the Marine Life Institute, a conservatory that houses diverse ocean species. Dory now knows that her family reunion will only happen if she can save mom and dad from captivity.",
+    "poster" : "findingdoryPoster.jpg",
+    "background_image" : "findingdory-background.png"
+  }]
+
+}

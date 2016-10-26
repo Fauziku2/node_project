@@ -1,0 +1,40 @@
+<h1>Hi Logged in User</h1>
+
+<% if(message.length > 0) { %>
+  <h3>Flash Found</h3>
+  <div class="alert alert-danger">
+    <%= message %>
+  </div>
+<% } %>
+
+
+<a href="/logout">Logout</a>
+
+<div>
+  <ul id="all-movie-boxes">
+           <% moviesArr.forEach(function(movie) { %>
+             <div class="four columns">
+             <a href="/movies/<%= movie.id %>"><img src="/images/<%= movie.poster %>" class="img-thumbnail"
+             height="200" width="200"></a>
+            <li>
+             <h2> <%= movie.title %> </h2>
+             <p> <%= movie.genre %> </p>
+             <p> <%= movie.description %> </p>
+            </li>
+            </div>
+          <% }) %>
+      </ul>
+
+      <%# <img src="images/deepwaterhorizonposter.jpg" class="img-thumbnail" height="200" width="200">
+
+      <img src="images/jackreacherposter.jpg" class="img-thumbnail" height="200" width="200">
+
+      <img src="images/infernoposter.jpg" class="img-thumbnail" height="200" width="200">
+
+      <img src="images/girltrain-poster.jpg" c class="img-thumbnail" height="200" width="200">
+
+      <img src="images/startrekbeyond-poster.jpeg" class="img-thumbnail" height="200" width="200">
+
+      <img src="images/findingdoryPoster.jpg" class="img-thumbnail" height="200" width="200">%>
+
+</div>

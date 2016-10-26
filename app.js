@@ -45,6 +45,8 @@ app.use(express.static(__dirname + '/public'))
 
 var usersRoutes = require('./routes/users')
 var usersAPIRoutes = require('./routes/users_api')
+var movieRoutes = require('./routes/movies')
+var reviewRoutes = require('./routes/reviews')
 
 app.use(bodyParser.json()) // to parse ajax json req
 app.use(bodyParser.urlencoded({
@@ -55,6 +57,8 @@ require('./config/passport')(passport)
 
 app.use('/', usersRoutes) // only render ejs files
 app.use('/api/users', usersAPIRoutes) // only handle ajax request
+app.use('/movies', movieRoutes)
+//app.use('/movies/:id', reviewRoutes)
 
-app.listen(process.env.PORT || 3000)
-console.log('Server started')
+app.listen(process.env.PORT || 5000)
+console.log('Listening to port 5000, server started')

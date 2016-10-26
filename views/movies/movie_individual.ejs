@@ -1,0 +1,29 @@
+<h1><%= foundmovie.title %></h1>
+<img src="/images/<%= foundmovie.poster %>" class="img-thumbnail"
+height="200" width="200">
+
+<p>
+  <%= foundmovie.description %>
+</p>
+
+
+  <div class="form-group" >
+    <form class="comment-user" action="/movies/<%= foundmovie.id %>" method="POST">
+    <label for="inputcomments">Comments</label>
+    <textarea name="user[review]" type="text" class="form-control" rows="4"></textarea>
+    <button class="btn btn-default" type="submit" value='comment'>Comment</button>
+  </form>
+
+  </div>
+
+
+
+  <% reviewArr.forEach(function(review) { %>
+    <div class="container">
+       <div class="row">
+          <div class="col-md-8">
+             <p> <%= review.comment %> <p>
+          </div>
+        </div>
+    </div>
+  <% }) %>
