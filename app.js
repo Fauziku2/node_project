@@ -11,6 +11,8 @@ var passport = require('passport')
 var MongoStore = require('connect-mongo')(session)
 
 var dotenv = require('dotenv')
+var methodOverride = require('method-override')
+
 
 var mongoose = require('mongoose')
 mongoose.Promise = global.Promise
@@ -21,6 +23,8 @@ mongoose.Promise = global.Promise
 dotenv.load({ path: '.env.' + process.env.NODE_ENV })
 
 mongoose.connect(process.env.MONGO_URI)
+
+// app.use(methodOverride('_method'))
 
 app.use(morgan('dev'))
 app.set('view engine', 'ejs')
@@ -52,6 +56,15 @@ app.use(bodyParser.json()) // to parse ajax json req
 app.use(bodyParser.urlencoded({
   extended: true
 })) // to parse form submitted data
+
+app.use(methodOverride(function(req, res){
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method
+    delete req.body._method
+    return method
+  }
+}))
 
 require('./config/passport')(passport)
 
