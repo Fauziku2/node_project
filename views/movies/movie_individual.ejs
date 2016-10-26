@@ -1,10 +1,13 @@
-<h1><%= foundmovie.title %></h1>
-<img src="/images/<%= foundmovie.poster %>" class="img-thumbnail"
-height="200" width="200">
 
-<p>
-  <%= foundmovie.description %>
-</p>
+<h1><%= foundmovie.title %></h1>
+<div class="col-md-3">
+<img class= "newImage img-responsive" src="/images/<%= foundmovie.poster %>">
+</div>
+<div class="col-md-9">
+  <p><%= foundmovie.description %></p>
+</div>
+
+<div style="clear: both"></div>
 
 
   <div class="form-group" >
@@ -19,11 +22,15 @@ height="200" width="200">
 
 
   <% reviewArr.forEach(function(review) { %>
-    <div class="container">
+    <div class="container commentBox">
        <div class="row">
           <div class="col-md-8">
              <p> <%= review.comment %> <p>
           </div>
+          <form method="POST" action="<%=foundmovie.id%>/reviews/<%= review.id%>?_method=PUT">
+            <input type="submit" name="_method" value="Edit">
+            <button type="submit">Edit</button>
+
           <form method="POST" action="<%=foundmovie.id%>/reviews/<%= review.id%>?_method=DELETE">
             <input type="hidden" name="_method" value="DELETE">
             <button type="submit">Delete</button>

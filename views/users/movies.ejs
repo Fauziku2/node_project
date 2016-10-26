@@ -12,17 +12,27 @@
 
 <div>
   <ul id="all-movie-boxes">
-           <% moviesArr.forEach(function(movie) { %>
-             <div class="four columns">
-             <a href="/movies/<%= movie.id %>"><img src="/images/<%= movie.poster %>" class="img-thumbnail"
-             height="200" width="200"></a>
+           <% var counter = 0
+
+
+
+           moviesArr.forEach(function(movie) {
+             counter++
+
+             %>
+             <div class="col-md-4">
+             <a href="/movies/<%= movie.id %>"><img class="movieImage img-responsive"  src="/images/<%= movie.poster %>" ></a>
             <li>
-             <h2> <%= movie.title %> </h2>
+             <h4> <%= movie.title %> </h4>
              <p> <%= movie.genre %> </p>
-             <p> <%= movie.description %> </p>
             </li>
             </div>
-          <% }) %>
+
+            <% if (counter % 3 === 0) { %>
+              <div style="clear:both;"></div>
+
+            <% }
+         }) %>
       </ul>
 
       <%# <img src="images/deepwaterhorizonposter.jpg" class="img-thumbnail" height="200" width="200">

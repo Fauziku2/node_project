@@ -1,1 +1,9 @@
-
+.movieImage {
+  max-width: 300px;
+  height: 400px;
+}
+.form-group, .commentBox{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 20px;
+}

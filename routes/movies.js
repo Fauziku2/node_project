@@ -57,6 +57,15 @@ router.post('/:movie_id', function (req, res) {
   })
 })
 
+router.put('/:movie_id/reviews/:id', function (req, res) {
+  var editReview = req.body.user.review
+  console.log('edit: ' + editReview)
+  Review.findByIdAndUpdate(req.param.id, editReview, function (err, editRev) {
+    if (err) throw new Error(err)
+    res.redirect('/movies/' + req.params.movie_id)
+  })
+})
+
 router.delete('/:movie_id/reviews/:id', function (req, res) {
   Review.findByIdAndRemove(req.params.id, function (err, movreview) {
     if (err) {
