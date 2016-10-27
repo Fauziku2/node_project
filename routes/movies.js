@@ -40,7 +40,8 @@ router.get('/:id', function (req, res) {
       res.render('movies/movie_individual', {
         foundmovie: foundmovie,
         reviewArr: review,
-        currentUser: req.user.id
+        currentUser: req.user.id,
+        nowUser: req.user
       })
     })
   })

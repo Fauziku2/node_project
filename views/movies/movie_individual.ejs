@@ -11,11 +11,11 @@
 <img class= "newImage img-responsive" src="/images/<%= foundmovie.poster %>">
 </div>
 <div class="col-md-8">
-  <p>Title<p>
+  <p class="movie-header">Title<p>
   <p><%= foundmovie.title %></p>
-  <p>Genre<p>
+  <p class="movie-header">Genre<p>
   <p><%= foundmovie.genre %></p>
-  <p>Description<p>
+  <p class="movie-header">Description<p>
   <p class="movie_description"><%= foundmovie.description %></p>
 </div>
 </div>
@@ -38,7 +38,11 @@
     <div class="container commentBox">
        <div class="row">
           <div class="col-md-8">
+          <h4 class="media-heading">
+                <small><%=review.time%></small>
+                </h4>
              <p> <%= review.comment %> <p>
+             <hr>
           </div>
 
 
@@ -49,6 +53,7 @@
             <input type="hidden" name="_method" value="DELETE">
             <button class="btn btn-default" type="submit">Delete</button>
           </form>
+
         <% } %>
         </div>
     </div>
