@@ -44,6 +44,7 @@ router.get('/:id', function (req, res) {
     })
   })
 })
+
 router.post('/:movie_id', function (req, res) {
   var newReview = new Review({
       // rating: req.body.rating,
@@ -57,14 +58,56 @@ router.post('/:movie_id', function (req, res) {
   })
 })
 
-router.put('/:movie_id/reviews/:id', function (req, res) {
-  var editReview = req.body.user.review
-  console.log('edit: ' + editReview)
-  Review.findByIdAndUpdate(req.param.id, editReview, function (err, editRev) {
-    if (err) throw new Error(err)
-    res.redirect('/movies/' + req.params.movie_id)
+router.get('/:movie_id/reviews/:id/edit', function (req, res) {
+
+  Movie.findById(req.params.movie_id, function (err, foundmovie) {
+    if (err) console.log(err)
+
+    Review.findById(req.params.id, function (err, editReview) {
+      if (err) console.log(err)
+
+      console.log(editReview);
+
+      res.render('movies/movie_edit', {
+        foundmovie: foundmovie,
+        editReview: editReview
+      })
+    })
   })
 })
+
+// router.get('/:id/edit', function (req, res) {
+//   Review.findById(req.params.id, function (err, editReview) {
+//     if (err) console.log(err)
+//     res.render('movies/movie_edit', {
+//       editReview: editReview
+//
+//     })
+//     console.log(editReview)
+//   })
+// })
+
+router.post('/:movie_id/reviews/:id/edit', function (req, res) {
+
+  Review.findById(req.params.id, function (err, editReview) {
+    if (err) console.log(err)
+    editReview.comment = req.body.user.review
+
+    editReview.save(function (err, currentReview) {
+      if (err) console.log(err)
+      res.redirect('/movies/' + editReview.movie_id)
+      
+    })
+  })
+})
+// router.put(':id/edit', function (req, res) {
+//   var editReview = req.body.user.review
+//   console.log('edit: ' + editReview)
+//   Review.findByIdAndUpdate(req.param.id, editReview, function (err, editRev) {
+//     if (err) throw new Error(err)
+//     res.redirect('/movies/' + req.params.movie_id)
+//   })
+// })
 
 router.delete('/:movie_id/reviews/:id', function (req, res) {
   Review.findByIdAndRemove(req.params.id, function (err, movreview) {
@@ -74,7 +117,6 @@ router.delete('/:movie_id/reviews/:id', function (req, res) {
     } else {
       res.redirect('/movies/' + req.params.movie_id)
     }
-
     // res.send(success)
   })
 })

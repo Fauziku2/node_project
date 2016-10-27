@@ -44,7 +44,7 @@ router.route('/signup')
       }))
 
 router.route('/login')
-      .get(function (req, res) {
+      .get(authCheck,function (req, res) {
         res.render('users/login', { message: req.flash('loginMessage') })
       })
       .post(passport.authenticate('local-login', {

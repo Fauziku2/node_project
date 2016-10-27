@@ -18,14 +18,12 @@
 
            moviesArr.forEach(function(movie) {
              counter++
-
              %>
-             <div class="col-md-4">
+             <div class="col-md-4" >
+             <div class="image-container">
              <a href="/movies/<%= movie.id %>"><img class="movieImage img-responsive"  src="/images/<%= movie.poster %>" ></a>
-            <li>
-             <h4> <%= movie.title %> </h4>
-             <p> <%= movie.genre %> </p>
-            </li>
+             <div class="after"><p><%= movie.title %></p></div>
+             </div>
             </div>
 
             <% if (counter % 3 === 0) { %>

@@ -1,0 +1,8 @@
+<div class="form-group" >
+  <form class="comment-user" action="/movies/<%= foundmovie.id %>/reviews/<%= editReview.id %>/edit" method="POST">
+  <label for="inputcomments">Comments</label>
+  <textarea name="user[review]" type="text" class="form-control" rows="4" ><%= editReview.comment %></textarea>
+  <button class="btn btn-default" type="submit">Save</button>
+</form>
+
+</div>

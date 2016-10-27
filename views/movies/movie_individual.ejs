@@ -27,13 +27,10 @@
           <div class="col-md-8">
              <p> <%= review.comment %> <p>
           </div>
-          <form method="POST" action="<%=foundmovie.id%>/reviews/<%= review.id%>?_method=PUT">
-            <input type="submit" name="_method" value="Edit">
-            <button type="submit">Edit</button>
-
+          <a href="/movies/<%= foundmovie.id %>/reviews/<%= review.id %>/edit" class="btn btn-default" role="button" aria-pressed="true">Edit</a>
           <form method="POST" action="<%=foundmovie.id%>/reviews/<%= review.id%>?_method=DELETE">
             <input type="hidden" name="_method" value="DELETE">
-            <button type="submit">Delete</button>
+            <button class="btn btn default" type="submit">Delete</button>
           </form>
         </div>
     </div>
