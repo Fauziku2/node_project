@@ -1,4 +1,7 @@
-<h1>Hi Logged in User</h1>
+
+<%- include ../partials/header.ejs %>
+
+<div class="container">
 
 <% if(message.length > 0) { %>
   <h3>Flash Found</h3>
@@ -6,9 +9,6 @@
     <%= message %>
   </div>
 <% } %>
-
-
-<a href="/logout">Logout</a>
 
 <div>
   <ul id="all-movie-boxes">
@@ -43,6 +43,6 @@
 
       <img src="images/startrekbeyond-poster.jpeg" class="img-thumbnail" height="200" width="200">
 
-      <img src="images/findingdoryPoster.jpg" class="img-thumbnail" height="200" width="200">%>
-
+      <img src="images/findingdoryPoster.jpg" class="img-thumbnail" height="200" width="200">%>s
+    </div>
 </div>

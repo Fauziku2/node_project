@@ -1,3 +1,7 @@
+
+<%- include ../partials/header.ejs %>
+
+<div class="container">
 <div class="form-group" >
   <form class="comment-user" action="/movies/<%= foundmovie.id %>/reviews/<%= editReview.id %>/edit" method="POST">
   <label for="inputcomments">Comments</label>
@@ -5,4 +9,5 @@
   <button class="btn btn-default" type="submit">Save</button>
 </form>
 
+</div>
 </div>

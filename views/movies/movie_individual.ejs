@@ -1,4 +1,8 @@
 
+<%- include ../partials/header.ejs %>
+
+<div class="container">
+
 <h1><%= foundmovie.title %></h1>
 <div class="col-md-3">
 <img class= "newImage img-responsive" src="/images/<%= foundmovie.poster %>">
@@ -27,11 +31,15 @@
           <div class="col-md-8">
              <p> <%= review.comment %> <p>
           </div>
+          <%if(currentUser === review.user_id){%>
           <a href="/movies/<%= foundmovie.id %>/reviews/<%= review.id %>/edit" class="btn btn-default" role="button" aria-pressed="true">Edit</a>
           <form method="POST" action="<%=foundmovie.id%>/reviews/<%= review.id%>?_method=DELETE">
             <input type="hidden" name="_method" value="DELETE">
             <button class="btn btn default" type="submit">Delete</button>
           </form>
+        <% } %>
         </div>
     </div>
   <% }) %>
+
+</div>

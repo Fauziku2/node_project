@@ -31,7 +31,7 @@ router.get('/', function (req, res) {
 
 router.get('/:id', function (req, res) {
 
-  Movie.findById({_id: req.params.id}, function (err, foundmovie) {
+  Movie.findById(req.params.id, function (err, foundmovie) {
     if (err) console.log(err)
 
     Review.find({movie_id: req.params.id}, function (err, review) {
@@ -39,7 +39,8 @@ router.get('/:id', function (req, res) {
 
       res.render('movies/movie_individual', {
         foundmovie: foundmovie,
-        reviewArr: review
+        reviewArr: review,
+        currentUser: req.user.id
       })
     })
   })
@@ -66,7 +67,7 @@ router.get('/:movie_id/reviews/:id/edit', function (req, res) {
     Review.findById(req.params.id, function (err, editReview) {
       if (err) console.log(err)
 
-      console.log(editReview);
+      console.log(editReview)
 
       res.render('movies/movie_edit', {
         foundmovie: foundmovie,
@@ -96,7 +97,7 @@ router.post('/:movie_id/reviews/:id/edit', function (req, res) {
     editReview.save(function (err, currentReview) {
       if (err) console.log(err)
       res.redirect('/movies/' + editReview.movie_id)
-      
+
     })
   })
 })
