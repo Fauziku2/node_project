@@ -1,14 +1,23 @@
 
 <%- include ../partials/header.ejs %>
 
-<div class="container">
+<div id="hero-image-single" style="background-image: url('/images/<%= foundmovie.background_image %>');">
+  <h1 id="hero-title"><%= foundmovie.title %></h1>
+</div>
 
-<h1><%= foundmovie.title %></h1>
-<div class="col-md-3">
+<div class="container">
+<div class="picsNwords">
+<div class="col-md-4">
 <img class= "newImage img-responsive" src="/images/<%= foundmovie.poster %>">
 </div>
-<div class="col-md-9">
-  <p><%= foundmovie.description %></p>
+<div class="col-md-8">
+  <p>Title<p>
+  <p><%= foundmovie.title %></p>
+  <p>Genre<p>
+  <p><%= foundmovie.genre %></p>
+  <p>Description<p>
+  <p class="movie_description"><%= foundmovie.description %></p>
+</div>
 </div>
 
 <div style="clear: both"></div>
@@ -31,11 +40,14 @@
           <div class="col-md-8">
              <p> <%= review.comment %> <p>
           </div>
-          <%if(currentUser === review.user_id){%>
-          <a href="/movies/<%= foundmovie.id %>/reviews/<%= review.id %>/edit" class="btn btn-default" role="button" aria-pressed="true">Edit</a>
+
+
+          <%if(currentUser === String(review.user_id)){%>
+
           <form method="POST" action="<%=foundmovie.id%>/reviews/<%= review.id%>?_method=DELETE">
+            <a href="/movies/<%= foundmovie.id %>/reviews/<%= review.id %>/edit" class="btn btn-default" role="button" aria-pressed="true">Edit</a>
             <input type="hidden" name="_method" value="DELETE">
-            <button class="btn btn default" type="submit">Delete</button>
+            <button class="btn btn-default" type="submit">Delete</button>
           </form>
         <% } %>
         </div>
