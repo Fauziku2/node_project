@@ -7,7 +7,8 @@ var Review = require('../models/review')
 // var moviesJSON = require('../movies.json')
 
 router.get('/', function (req, res) {
-
+  if (!req.isAuthenticated())
+     res.redirect('/login')
   Movie.find({}, function (err, movies) {
     if (err) console.log(err)
     res.render('users/movies', {
@@ -31,6 +32,9 @@ router.get('/', function (req, res) {
 
 router.get('/:id', function (req, res) {
 
+  // if (!req.isAuthenticated())
+  //  res.redirect('/signup')
+
   Movie.findById(req.params.id, function (err, foundmovie) {
     if (err) console.log(err)
 
@@ -48,6 +52,10 @@ router.get('/:id', function (req, res) {
 })
 
 router.post('/:movie_id', function (req, res) {
+
+  // if (!req.isAuthenticated())
+  //  res.redirect('/signup')
+
   var newReview = new Review({
       // rating: req.body.rating,
     comment: req.body.user.review,
@@ -61,6 +69,8 @@ router.post('/:movie_id', function (req, res) {
 })
 
 router.get('/:movie_id/reviews/:id/edit', function (req, res) {
+  if (!req.isAuthenticated())
+   res.redirect('/signup')
 
   Movie.findById(req.params.movie_id, function (err, foundmovie) {
     if (err) console.log(err)
