@@ -42,11 +42,12 @@
                 <small><%=review.time%></small>
                 </h4>
              <p> <%= review.comment %> <p>
+                <p> posted by:<%= review.user_id.local.name %> <p>
              <hr>
           </div>
 
 
-          <%if(currentUser === String(review.user_id)){%>
+          <%if(currentUser === String(review.user_id.id)){%>
 
           <form method="POST" action="<%=foundmovie.id%>/reviews/<%= review.id%>?_method=DELETE">
             <a href="/movies/<%= foundmovie.id %>/reviews/<%= review.id %>/edit" class="btn btn-default" role="button" aria-pressed="true">Edit</a>

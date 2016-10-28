@@ -38,9 +38,9 @@ router.get('/:id', function (req, res) {
   Movie.findById(req.params.id, function (err, foundmovie) {
     if (err) console.log(err)
 
-    Review.find({movie_id: req.params.id}, function (err, review) {
+    Review.find({movie_id: req.params.id}).populate('user_id').exec (function (err, review) {
       if (err) console.log(err)
-
+//res.send(review)
       res.render('movies/movie_individual', {
         foundmovie: foundmovie,
         reviewArr: review,
