@@ -22,17 +22,19 @@
 
 <div style="clear: both"></div>
 
+<div class="col-md-4 trailerVid">
+  <iframe width="560" height="315" src="<%= foundmovie.trailer %>" frameborder="0" allowfullscreen></iframe>
+</div>
 
-  <div class="form-group" >
+
+  <div class="col-md-12 form-group" >
     <form class="comment-user" action="/movies/<%= foundmovie.id %>" method="POST">
     <label for="inputcomments">Comments</label>
     <textarea name="user[review]" type="text" class="form-control" rows="4"></textarea>
     <button class="btn btn-default" type="submit" value='comment'>Comment</button>
   </form>
 
-  </div>
-
-
+<div class="col-md-12">
 
   <% reviewArr.forEach(function(review) { %>
     <div class="container commentBox">
@@ -44,9 +46,7 @@
              <p> <%= review.comment %> <p>
                 <p> posted by:<%= review.user_id.local.name %> <p>
              <hr>
-          </div>
-
-
+             </div>
           <%if(currentUser === String(review.user_id.id)){%>
 
           <form method="POST" action="<%=foundmovie.id%>/reviews/<%= review.id%>?_method=DELETE">
@@ -56,6 +56,7 @@
           </form>
 
         <% } %>
+
         </div>
     </div>
   <% }) %>
