@@ -44,8 +44,10 @@
                 <small><%=review.time%></small>
                 </h4>
              <p> <%= review.comment %> <p>
-                <p> posted by:<%= review.user_id.local.name %> <p>
-             <hr>
+                <p class="posted"> posted by:<%= review.user_id.local.name %><p>
+                <iframe src="//instalike.click/button/?thing=<%= review.comment %>&align=left" frameborder="0" scrolling="0" width="140px" height="20px">
+                </iframe>
+             <hr class="commentLine">
              </div>
           <%if(currentUser === String(review.user_id.id)){%>
 
@@ -54,7 +56,6 @@
             <input type="hidden" name="_method" value="DELETE">
             <button class="btn btn-default" type="submit">Delete</button>
           </form>
-
         <% } %>
 
         </div>
