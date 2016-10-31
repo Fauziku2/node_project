@@ -6,16 +6,35 @@ var Review = require('../models/review')
 
 // var moviesJSON = require('../movies.json')
 
+// function authCheck (req, res, next) {
+//
+//   if (!req.isAuthenticated())
+//     res.redirect('/login')
+  // if req.isAuthenticated is false, then let it be
+
+  // if it's true, redirect back to profile
+
+  // if (req.isAuthenticated()) {
+  //   // req.flash('signupMessage', 'You have logged in!')
+  //   return res.redirect('/login') // profile need to change-redirect
+  // } else {
+  //   return next()
+  // }
+// }
+
 router.get('/', function (req, res) {
-  if (!req.isAuthenticated())
-     res.redirect('/login')
-  Movie.find({}, function (err, movies) {
-    if (err) console.log(err)
-    res.render('users/movies', {
-      moviesArr: movies,
-      message: req.flash('loginMessage')
+
+  if (!req.isAuthenticated()){
+    res.redirect('/login')
+  }else{
+    Movie.find({}, function (err, movies) {
+      if (err) console.log(err)
+      res.render('users/movies', {
+        moviesArr: movies,
+        message: req.flash('loginMessage')
+      })
     })
-  })
+  }
 })
 //
 // router.get('/:id', function(req, res){
@@ -32,29 +51,31 @@ router.get('/', function (req, res) {
 
 router.get('/:id', function (req, res) {
 
-  // if (!req.isAuthenticated())
-  //  res.redirect('/signup')
+  if (!req.isAuthenticated()){
 
-  Movie.findById(req.params.id, function (err, foundmovie) {
-    if (err) console.log(err)
-
-    Review.find({movie_id: req.params.id}).populate('user_id').exec (function (err, review) {
+    res.redirect('/login')
+  }else{
+    Movie.findById(req.params.id, function (err, foundmovie) {
       if (err) console.log(err)
-//res.send(review)
-      res.render('movies/movie_individual', {
-        foundmovie: foundmovie,
-        reviewArr: review,
-        currentUser: req.user.id,
-        nowUser: req.user
+      console.log("finding movie");
+      Review.find({movie_id: req.params.id}).populate('user_id').exec(function (err, review) {
+        if (err) console.log(error)
+        // return res.redirect('/login')
+        res.render('movies/movie_individual', {
+          foundmovie: foundmovie,
+          reviewArr: review,
+          currentUser: req.user.id,
+          nowUser: req.user
+        })
       })
     })
-  })
+  }
 })
 
 router.post('/:movie_id', function (req, res) {
 
   // if (!req.isAuthenticated())
-  //  res.redirect('/signup')
+  //   res.redirect('/login')
 
   var newReview = new Review({
       // rating: req.body.rating,
@@ -69,8 +90,9 @@ router.post('/:movie_id', function (req, res) {
 })
 
 router.get('/:movie_id/reviews/:id/edit', function (req, res) {
+
   if (!req.isAuthenticated())
-   res.redirect('/signup')
+    res.redirect('/login')
 
   Movie.findById(req.params.movie_id, function (err, foundmovie) {
     if (err) console.log(err)
@@ -108,7 +130,6 @@ router.post('/:movie_id/reviews/:id/edit', function (req, res) {
     editReview.save(function (err, currentReview) {
       if (err) console.log(err)
       res.redirect('/movies/' + editReview.movie_id)
-
     })
   })
 })

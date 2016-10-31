@@ -30,7 +30,7 @@
   <div class="col-md-12 form-group" >
     <form class="comment-user" action="/movies/<%= foundmovie.id %>" method="POST">
     <label for="inputcomments">Comments</label>
-    <textarea name="user[review]" type="text" class="form-control" rows="4"></textarea>
+    <textarea name="user[review]" type="text" class="form-control" rows="4" required></textarea>
     <button class="btn btn-default" type="submit" value='comment'>Comment</button>
   </form>
 
@@ -43,12 +43,11 @@
           <h4 class="media-heading">
                 <small><%=review.time%></small>
                 </h4>
-             <p> <%= review.comment %> <p>
+                <p> <%= review.comment %> <p>
                 <p class="posted"> posted by:<%= review.user_id.local.name %><p>
-                <iframe src="//instalike.click/button/?thing=THING&align=left" frameborder="0" scrolling="0" width="140px" height="20px">
-                </iframe>
-             <hr class="commentLine">
+                <hr class="commentLine">
              </div>
+
           <%if(currentUser === String(review.user_id.id)){%>
 
           <form method="POST" action="<%=foundmovie.id%>/reviews/<%= review.id%>?_method=DELETE">
