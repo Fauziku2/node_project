@@ -53,8 +53,8 @@ router.get('/:id', function (req, res) {
 
   if (!req.isAuthenticated()){
 
-    res.redirect('/login')
-  }else{
+    res.redirect('/')
+  } else {
     Movie.findById(req.params.id, function (err, foundmovie) {
       if (err) console.log(err)
       console.log("finding movie");
@@ -92,7 +92,7 @@ router.post('/:movie_id', function (req, res) {
 router.get('/:movie_id/reviews/:id/edit', function (req, res) {
 
   if (!req.isAuthenticated())
-    res.redirect('/login')
+    res.redirect('/')
 
   Movie.findById(req.params.movie_id, function (err, foundmovie) {
     if (err) console.log(err)
