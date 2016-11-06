@@ -165,7 +165,7 @@ background-color: grey;
 
 .centreBox{
   width: 1000px;
-  height: 265px;
+  height: 240px;
   margin: 0 auto;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.1);
@@ -177,4 +177,14 @@ background-color: grey;
   font-size: 34;
   margin-left: 50px;
   padding-top: 15px;
+}
+
+.newCentreBox{
+  width: 1000px;
+  height: 280px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 120px;
 }
