@@ -43,13 +43,13 @@ router.route('/signup')
         failureFlash: true
       }))
 
-router.route('/login')
+router.route('/')
       .get(authCheck,function (req, res) {
         res.render('users/login', { message: req.flash('loginMessage') })
       })
       .post(passport.authenticate('local-login', {
         successRedirect: '/movies',
-        failureRedirect: '/login',
+        failureRedirect: '/',
         failureFlash: true
       }))
 
@@ -65,7 +65,7 @@ router.get('/error', function (req, res) {
 
 router.get('/logout', function (req, res) {
   req.logout()
-  res.redirect('/login')
+  res.redirect('/')
 })
 
 module.exports = router
