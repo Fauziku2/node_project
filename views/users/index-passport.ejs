@@ -6,7 +6,7 @@
   </div>
 <% } %>
 
-<form class="form-inline" class="new-user-passport" action="/signup" method="post">
+<form class="form-inline new-user-passport newForm" action="/signup" method="post" data-parsley-validate>
   <div class="form-inline">
 
       <label class="sr-only" for="exampleInputEmail3">Name</label>
@@ -17,7 +17,7 @@
       <input class="form-control" type="text" name="user[local][email]" id="user-email" placeholder="Your user email" class="u-full-width" required>
 
       <label class="sr-only" for="exampleInputEmail3">Password</label>
-      <input class="form-control" type="password" name="user[local][password]" id="user-password" placeholder="Your user password" class="u-full-width" required>
+      <input class="form-control" type="password" name="user[local][password]" id="user-password" placeholder="Your user password" class="u-full-width" data-parsley-minlength="6" data-parsley-minlength-message="Please enter at least 6 charactors" required>
 
     <button class="btn btn-default" type="submit" value='Save My User'>Sign Up</button>
   </div>

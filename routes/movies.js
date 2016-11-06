@@ -24,9 +24,9 @@ var Review = require('../models/review')
 
 router.get('/', function (req, res) {
 
-  if (!req.isAuthenticated()){
-    res.redirect('/login')
-  }else{
+  // if (!req.isAuthenticated())
+  //   res.redirect('/login')
+
     Movie.find({}, function (err, movies) {
       if (err) console.log(err)
       res.render('users/movies', {
@@ -34,7 +34,7 @@ router.get('/', function (req, res) {
         message: req.flash('loginMessage')
       })
     })
-  }
+
 })
 //
 // router.get('/:id', function(req, res){

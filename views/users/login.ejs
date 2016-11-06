@@ -1,18 +1,33 @@
-<h1>Login here</h1>
 
-<form class="login-user" action="/login" method="post">
-  <div class="form-inline">
+<div class="centreBox">
+  <h3 class="loginHead">Login here</h3>
+      <form class="login-user form-horizontal frontForm" action="/login" method="post">
+      <div class="form-group">
 
-      <label class="sr-only" for="exampleInputEmail3">Email</label>
-      <input class="form-control" type="text" name="user[local][email]" placeholder="Your email" class="u-full-width" required>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="exampleInputEmail3">Email</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="email" name="user[local][email]" placeholder="Your email" class="u-full-width" required>
+          </div>
+        </div>
 
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="exampleInputEmail3">Password</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="password" name="user[local][password]" placeholder="Your password" class="u-full-width" required>
+          </div>
+          </div>
 
-      <label class="sr-only" for="exampleInputEmail3">Password</label>
-      <input class="form-control" type="password" name="user[local][password]" placeholder="Your password" class="u-full-width" required>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-default" type="submit" value='Log in'>Log In</button>
+              <a href="/signup" class="btn btn-default" role="button" aria-pressed="true">New User/ Sign Up</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
 
-    <button class="btn btn-default" type="submit" value='Log in'>Log In</button>
-  </div>
-</form>
 
 <% if(message.length > 0) { %>
   <div class="alert alert-danger">

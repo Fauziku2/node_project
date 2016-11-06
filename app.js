@@ -46,6 +46,8 @@ app.use(flash())
 // serve static files
 app.use(express.static(__dirname + '/public'))
 
+
+
 var usersRoutes = require('./routes/users')
 var usersAPIRoutes = require('./routes/users_api')
 var movieRoutes = require('./routes/movies')
@@ -64,6 +66,13 @@ app.use(methodOverride(function (req, res) {
     return method
   }
 }))
+
+// this middleware allow you to access user in every ejs page
+// need to put above the app.use routes
+app.use(function (req, res, next) {
+  res.locals.user = req.user
+  next()
+})
 
 require('./config/passport')(passport)
 

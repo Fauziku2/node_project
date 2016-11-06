@@ -47,7 +47,7 @@
                 <p class="posted"> posted by:<%= review.user_id.local.name %><p>
                 <hr class="commentLine">
              </div>
-
+             
           <%if(currentUser === String(review.user_id.id)){%>
 
           <form method="POST" action="<%=foundmovie.id%>/reviews/<%= review.id%>?_method=DELETE">
